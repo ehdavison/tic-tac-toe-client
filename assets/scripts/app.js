@@ -6,8 +6,11 @@
 // use require without a reference to ensure a file is bundled
 // require('./example')
 
+const events = require('./games/events')
+
 $(() => {
   console.log('DOM is loaded')
   // event listener for sign-in-form
   $('#sign-up-form').on('submit', events.onSignUp)
+  $('#sign-in-form').on('submit', events.onSignIn)
 })
