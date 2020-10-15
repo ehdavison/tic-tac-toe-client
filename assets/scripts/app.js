@@ -7,5 +7,7 @@
 // require('./example')
 
 $(() => {
-  // your JS code goes here
+  console.log('DOM is loaded')
+  // event listener for sign-in-form
+  $('#sign-up-form').on('submit', events.onSignUp)
 })
