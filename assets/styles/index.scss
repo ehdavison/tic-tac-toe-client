@@ -1,1 +1,72 @@
 @import '~bootstrap/scss/bootstrap';
+
+.game-board {
+    display: grid;
+    grid-template-rows: 200px 200px 200px;
+    grid-template-columns: 200px 200px 200px;
+    // grid-gap: whatever;
+}
+
+
+.square {
+    border: 1px solid black;
+    height: 200px;
+    width: 200px;
+}
+
+#zero {
+    grid-row: 1 / span 1;
+    grid-column: 1 / span 1;
+    border-top: transparent;
+    border-left: transparent;
+}
+
+#one {
+    grid-row: 1 / span 1;
+    grid-column: 2 / span 1;
+    border-top: transparent;
+}
+
+#two {
+    grid-row: 1 / span 1;
+    grid-column: 3 / span 1;
+    border-top: transparent;
+    border-right: transparent;
+}
+
+#three {
+    grid-row: 2 / span 1;
+    grid-column: 1 / 1;
+    border-left: transparent;
+}
+
+#four {
+    grid-row: 2 / span 1;
+    grid-column: 2 / span 1;
+}
+
+#five {
+    grid-row: 2 / span 1;
+    grid-column: 3 / span 1;
+    border-right: transparent;
+}
+
+#six {
+    grid-row: 3 / span 1;
+    grid-column: 1 / span 1;
+    border-bottom: transparent;
+    border-left: transparent;
+}
+
+#seven {
+    grid-row: 3 / span 1;
+    grid-column: 2 / span 1;
+    border-bottom: transparent;
+}
+
+#eight {
+    grid-row: 3 / span 1;
+    grid-column: 3 / span 1;
+    border-right: transparent;
+    border-bottom: transparent;
+}
