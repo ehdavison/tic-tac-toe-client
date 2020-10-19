@@ -37,6 +37,14 @@ const changePasswordFailure = function () {
     $('#message').text('Password change failed, try again')
 }
 
+const newGameSuccess = function (response) {
+    $('#message').text('You have started a new game. Good luck!')
+}
+
+const newGameFailure = function () {
+    $('#message').text('New Game Creation Failed.')
+}
+
 module.exports = {
     signUpSuccess,
     signUpFailure,
@@ -45,5 +53,7 @@ module.exports = {
     signOutSuccess,
     signOutFailure,
     changePasswordSuccess,
-    changePasswordFailure
+    changePasswordFailure,
+    newGameSuccess,
+    newGameFailure
 }

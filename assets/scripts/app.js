@@ -15,4 +15,8 @@ $(() => {
   $('#sign-in-form').on('submit', events.onSignIn)
   $('#sign-out-form').on('submit', events.onSignOut)
   $('#change-password-form').on('submit', events.onChangePassword)
+  // attach event handler to each square
+  //nevermind that for now
+  // new game button
+  $('#new-game-button').on('submit', events.onNewGame)
 })

@@ -38,9 +38,29 @@ const onChangePassword = function (event) {
         .catch(ui.changePasswordFailure)
 }
 
+
+// new game button functionality
+
+const onNewGame = function (event) {
+    event.preventDefault()
+    api.newGame()
+    .then(ui.newGameSuccess)
+    .catch(ui.newGameFailure)
+}
+
+// use the jquery event function '.one' to trigger placing 
+//either an X or and O
+
+
+
+
+
+
 module.exports = {
     onSignUp,
     onSignIn,
     onSignOut,
-    onChangePassword
+    onChangePassword,
+    onNewGame
+    
 }
