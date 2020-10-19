@@ -3,6 +3,8 @@
 const getFormFields = require('./../../../lib/get-form-fields')
 const ui = require('./ui')
 const api = require('./api')
+const { makeMove } = require('./api')
+const { blockParams } = require('handlebars')
 
 const onSignUp = function (event) {
     event.preventDefault()
@@ -51,15 +53,42 @@ const onNewGame = function (event) {
 // use the jquery event function '.one' to trigger placing 
 //either an X or and O
 
+
+
 let cells = ["", "", "", "", "", "", "", "", ""]
+
+// function that cycles between x and o
+// const choices = ['x', 'o', 'x', 'o', 'x', 'o', 'x', 'o', 'x']
+let over = false
+let currentChoice = 'X'
+const xOrO = function () {
+    api.makeMove(currentChoice)
+    if(currentChoice === 'X') {
+        return currentChoice = 'O'
+        
+    } else if (currentChoice === 'O') {
+        return currentChoice = 'X'
+    }
+}
 
 const onMakeChoice = function (event) {
     event.preventDefault()
-    console.log('YOU CLICKED')
+    const box = $(event.target)
+    box.text(currentChoice)
+    const data = {
+        game: {
+            cell: {
+                index: box.data('cell-index'),
+                value: currentChoice
+            },
+            over: over
+        }
+    }
+    api.makeMove(data)
+    .then(ui.makeMoveSuccess)
+    .catch(ui.makeMoveFailure)
+    currentChoice = currentChoice === 'X'?'O':'X'
 }
-
-
-
 
 module.exports = {
     onSignUp,
@@ -68,5 +97,4 @@ module.exports = {
     onChangePassword,
     onNewGame,
     onMakeChoice
-    
 }

@@ -51,9 +51,14 @@ const newGame = function () {
     })
 }
 
-const makeMove = function () {
+const makeMove = function (data) {
     return $.ajax ({
-        url: config.apiUrl + '/'
+        url: config.apiUrl + '/games/' + store.game._id,
+        method: 'PATCH',
+        headers: {
+            Authorization: 'Bearer ' + store.user.token
+          },
+        data: data
     })
 }
 
@@ -62,5 +67,6 @@ module.exports = {
     signIn,
     signOut,
     changePassword,
-    newGame
+    newGame,
+    makeMove
 }

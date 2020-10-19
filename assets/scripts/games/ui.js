@@ -39,10 +39,27 @@ const changePasswordFailure = function () {
 
 const newGameSuccess = function (response) {
     $('#message').text('You have started a new game. Good luck!')
+    store.game = response.game
 }
 
 const newGameFailure = function () {
     $('#message').text('New Game Creation Failed.')
+}
+
+const makeMoveSuccess = function (response) {
+    $('#message').text('Move Successful')
+    store.game = response.game
+    const cells = store.game.cells
+    const square = $('.square')
+    for(let i = 0; i < cells.length; i++) {
+        if(cells[i]) {
+            $(square[i]).text(cells[i])
+        }
+    }
+}
+
+const makeMoveFailure = function (response) {
+    $('#message').text('Move Failed')
 }
 
 module.exports = {
@@ -55,5 +72,7 @@ module.exports = {
     changePasswordSuccess,
     changePasswordFailure,
     newGameSuccess,
-    newGameFailure
+    newGameFailure,
+    makeMoveSuccess,
+    makeMoveFailure
 }

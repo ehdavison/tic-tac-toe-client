@@ -19,13 +19,5 @@ $(() => {
   //nevermind that for now
   // new game button
   $('#new-game-button').on('submit', events.onNewGame)
-  $('#zero').one('click', events.onMakeChoice)
-  $('#one').one('click', events.onMakeChoice)
-  $('#two').one('click', events.onMakeChoice)
-  $('#three').one('click', events.onMakeChoice)
-  $('#four').one('click', events.onMakeChoice)
-  $('#five').one('click', events.onMakeChoice)
-  $('#six').one('click', events.onMakeChoice)
-  $('#seven').one('click', events.onMakeChoice)
-  $('#eight').one('click', events.onMakeChoice)
+  $('.square').one('click', events.onMakeChoice)
 })
