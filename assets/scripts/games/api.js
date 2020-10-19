@@ -51,6 +51,12 @@ const newGame = function () {
     })
 }
 
+const makeMove = function () {
+    return $.ajax ({
+        url: config.apiUrl + '/'
+    })
+}
+
 module.exports = {
     signUp,
     signIn,
