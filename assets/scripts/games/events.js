@@ -51,7 +51,12 @@ const onNewGame = function (event) {
 // use the jquery event function '.one' to trigger placing 
 //either an X or and O
 
+let cells = ["", "", "", "", "", "", "", "", ""]
 
+const onMakeChoice = function (event) {
+    event.preventDefault()
+    console.log('YOU CLICKED')
+}
 
 
 
@@ -61,6 +66,7 @@ module.exports = {
     onSignIn,
     onSignOut,
     onChangePassword,
-    onNewGame
+    onNewGame,
+    onMakeChoice
     
 }
