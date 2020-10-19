@@ -52,7 +52,6 @@ const onNewGame = function (event) {
 //either an X or and O
 
 let cells = ["", "", "", "", "", "", "", "", ""]
-cells = games.cells
 
 const onMakeChoice = function (event) {
     event.preventDefault()
