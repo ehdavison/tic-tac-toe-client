@@ -20,4 +20,7 @@ $(() => {
   // new game button
   $('#new-game-button').on('submit', events.onNewGame)
   $('.square').one('click', events.onMakeChoice)
+  $('.square').on('click', events.horizontalWinner)
+  $('.square').on('click', events.verticalWinner)
+  $('.square').on('click', events.diagonalWinner)
 })
