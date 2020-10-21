@@ -134,7 +134,7 @@ const diagonalWinner = function () {
     }
 }
 
-// Determining a tie
+// Determining a tie -- does not work with other win conditions...yet
 let turn = 0
 const countTurn = function () {
     turn++
