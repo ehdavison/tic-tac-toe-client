@@ -1,6 +1,8 @@
 'use strict'
 
 const store = require('./../store')
+const events = require('./events')
+const { horizontalWinner } = require('./events')
 
 const signUpSuccess = function (response) {
     $('#message').text('Thank you for signing up! ' + response.user.email)
@@ -12,6 +14,9 @@ const signUpFailure = function () {
 
 const signInSuccess = function (response) {
     $('#message').text('Thank you for signing in ' + response.user.email)
+    $('#sign-out-form').show()
+    $('#change-password-form').show()
+    $('#new-game-button').show()
     store.user = response.user
 }
 
@@ -39,6 +44,7 @@ const changePasswordFailure = function () {
 
 const newGameSuccess = function (response) {
     $('#message').text('You have started a new game. Good luck!')
+    $('.game-board').show()
     store.game = response.game
 }
 
@@ -47,7 +53,7 @@ const newGameFailure = function () {
 }
 
 const makeMoveSuccess = function (response) {
-    $('#message').text('Move Successful')
+    // $('#message').text('Move Successful')
     store.game = response.game
     const cells = store.game.cells
     const square = $('.square')
@@ -61,6 +67,8 @@ const makeMoveSuccess = function (response) {
 const makeMoveFailure = function (response) {
     $('#message').text('Move Failed')
 }
+
+
 
 module.exports = {
     signUpSuccess,

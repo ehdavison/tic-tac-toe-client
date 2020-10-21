@@ -12,14 +12,15 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <p id="message"></p>
+      <h1>Tic-Tac-Toe</h1>
+      <p>Sign up/Sign in to play!</p>
       <section>
         <form id="sign-up-form">
           <fieldset>
             <legend>Sign up!</legend>
             <label for="sign-up-email">Email</label>
             <input id="sign-up-email" type="text" name="credentials[email]" placeholder="Email">
-
+            
             <label for="sign-up-password">Password</label>
             <input id="sign-up-password" type="password" name="credentials[password]" placeholder="Password">
             
@@ -29,43 +30,44 @@
           </fieldset>
         </form>
       </section>
-
+      
       <section>
         <form id="sign-in-form">
           <fieldset>
             <legend>Sign In</legend>
             <label for="sign-in-email">Email</label>
             <input id="sign-in-email" type="email" name="credentials[email]" placeholder="Email">
-
+            
             <label for="sign-in-password">Password</label>
             <input id="sign-in-password" type="password" name="credentials[password]" placeholder="Password">
             <input type="submit" value="Sign In!">
           </fieldset>
         </form>
       </section>
-
+      
       <section>
         <form id="sign-out-form">
           <fieldset>
             <legend>Sign out!</legend>
             <input type="submit" value="Sign out!">
-            </fieldset> 
+          </fieldset> 
         </form>
       </section>
-
+      
       <section>
         <form id="change-password-form">
           <fieldset>
             <legend>Change Password</legend>
             <label for="old-password">Old Password</label>
             <input id="old-password" type="password" name="passwords[old]" placeholder="Old Password">
-
+            
             <label for="new-password">New Password</label>
             <input id="new-password" type="password" name="passwords[new]" placeholder="New Password">
             <input type="submit" value="Change Password">
           </fieldset>
         </form>
       </section>
+      <p id="message"></p>
       <main class="game-board">
         <div class="square" id="zero" data-cell-index= '0'></div>
         <div class="square" id="one" data-cell-index= '1'></div>
