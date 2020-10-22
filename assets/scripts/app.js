@@ -31,5 +31,5 @@ $(() => {
   //nevermind that for now
   // new game button
   $('#new-game-button').on('submit', events.onNewGame)
-  $('.square').one('click', events.onMakeChoice)
+  $('.square').on('click', events.onMakeChoice)
 })
