@@ -61,36 +61,56 @@ const onMakeChoice = function (event) {
     event.preventDefault()
     const box = $(event.target)
     box.text(currentChoice)
-    const data = {
-        game: {
-            cell: {
-                index: box.data('cell-index'),
-                value: currentChoice
-            },
-            over: over
-        }
-    }
+
+    //move data into store in order to determine if a game is over from anywhere
+
+    //the number of what box was clicked
+    store.data.game.cell.index = box.data('cell-index')
+
+    //the value of the players choice
+    store.data.game.cell.value = currentChoice
+
+    //The 'PATCH' AJAX request to update the cells array
+    api.makeMove(store.data)
+    .then(ui.makeMoveSuccess)
+    .catch(ui.makeMoveFailure)
+
+    //Determines if X or O should be played
+    currentChoice = currentChoice === 'X'?'O':'X'
     
+    //Checks if there is a win. If there is then change the game to over
+    winCondition()
+}
+
+
+
+let playerOneVictory = false
+let playerTwoVictory = false
+let tie = false
+
+
+//Checks if there is a win. If there is then change the game to over
+const winCondition = function () {
     determineTie()
     horizontalWinner()
     verticalWinner()
     diagonalWinner()
-    
-    api.makeMove(data)
-    .then(ui.makeMoveSuccess)
-    .catch(ui.makeMoveFailure)
-    currentChoice = currentChoice === 'X'?'O':'X'
+    if (playerOneVictory || playerTwoVictory || tie === true) {
+        store.data.game.over = true
+    }
 }
 
-// let playerOneVictory = false
-// let playerTwoVictory = false
+// const victory = function () {
+//     if (playerOneVictory === true) {
+//         console.log('sweet lord jesus')
+//     }
+// }
 
-const horizontalWinner = function () {
-    console.log('hello')
+const horizontalWinner = () => {
     if (store.game.cells[0] === 'X' && store.game.cells[1] === 'X' && store.game.cells[2] === 'X') {
+        console.log('hello')
         $('#message').text('Top Row X Victory')
-        // playerOneVictory = true
-        // console.log(playerOneVictory)
+        playerOneVictory = true
     } else if (store.game.cells[3] === 'X' && store.game.cells[4] === 'X' && store.game.cells[5] === 'X') {
         $('#message').text('Middle Row X Victory')
         playerOneVictory === true
@@ -134,15 +154,15 @@ const diagonalWinner = function () {
     }
 }
 
-// Determining a tie -- does not work with other win conditions...yet
+// Determining a tie
 let turn = 0
 const countTurn = function () {
     turn++
 }
 const determineTie = function () {
     countTurn()
-    console.log(turn)
-    if (turn === 9) {
+    if (turn === 9 && playerOneVictory === false && playerTwoVictory === false) {
+        tie = true
         $('#message').text("It's a tie!")
     }
 }
@@ -156,6 +176,7 @@ module.exports = {
     onMakeChoice,
     horizontalWinner,
     verticalWinner,
-    diagonalWinner
+    diagonalWinner,
+    winCondition
 
 }

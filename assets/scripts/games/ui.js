@@ -2,7 +2,7 @@
 
 const store = require('./../store')
 const events = require('./events')
-const { horizontalWinner } = require('./events')
+const { winCondition } = require('./events')
 
 const signUpSuccess = function (response) {
     $('#message').text('Thank you for signing up! ' + response.user.email)
@@ -46,6 +46,7 @@ const newGameSuccess = function (response) {
     $('#message').text('You have started a new game. Good luck!')
     $('.game-board').show()
     store.game = response.game
+    store.game.cells = ['', '', '',  '', '', '', '', '', '']
 }
 
 const newGameFailure = function () {
@@ -62,6 +63,8 @@ const makeMoveSuccess = function (response) {
             $(square[i]).text(cells[i])
         }
     }
+    console.log(cells)
+    console.log(store.data.game.over)
 }
 
 const makeMoveFailure = function (response) {
