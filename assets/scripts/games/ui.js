@@ -1,7 +1,6 @@
 'use strict'
 
 const store = require('./../store')
-const events = require('./events')
 const { winCondition } = require('./events')
 
 const signUpSuccess = function (response) {
@@ -47,6 +46,10 @@ const newGameSuccess = function (response) {
     $('.game-board').show()
     store.game = response.game
     store.game.cells = ['', '', '',  '', '', '', '', '', '']
+    store.data.game.over = false
+    console.log(store.data.game.over)
+    $('.square').text('')
+    
 }
 
 const newGameFailure = function () {
@@ -64,7 +67,8 @@ const makeMoveSuccess = function (response) {
         }
     }
     console.log(cells)
-    console.log(store.data.game.over)
+    
+    
 }
 
 const makeMoveFailure = function (response) {
