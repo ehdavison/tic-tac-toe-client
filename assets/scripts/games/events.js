@@ -48,10 +48,10 @@ const onChangePassword = function (event) {
 
 const onNewGame = function (event) {
     event.preventDefault()
-   
     api.newGame()
     .then(ui.newGameSuccess)
     .then(resetTurn)
+    .then($('.square').one('click', onMakeChoice))
     .catch(ui.newGameFailure)
 }
 
@@ -63,17 +63,18 @@ let currentChoice = 'X'
 const onMakeChoice = function (event) {
     event.preventDefault()
     const box = $(event.target)
-    box.text(currentChoice)
-
     //move data into store in order to determine if a game is over from anywhere
-
+    
     //the number of what box was clicked
     store.data.game.cell.index = box.data('cell-index')
-
+    
     //the value of the players choice
     store.data.game.cell.value = currentChoice
-
     //The 'PATCH' AJAX request to update the cells array
+   if (store.data.game.over === true) {
+       $('#message').text('Good Game!')
+   } else {
+    box.text(currentChoice)
     api.makeMove(store.data)
     .then(ui.makeMoveSuccess)
     .then(winCondition)
@@ -82,6 +83,7 @@ const onMakeChoice = function (event) {
     //Determines if X or O should be played
     currentChoice = currentChoice === 'X'?'O':'X'
     console.log(turn)
+   }
 }
 
 //Checks if there is a win. If there is then change the game to over

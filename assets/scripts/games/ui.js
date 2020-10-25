@@ -50,6 +50,7 @@ const newGameSuccess = function (response) {
     console.log(store.data.game.over)
     $('.square').text('')
     
+    
 }
 
 const newGameFailure = function () {
