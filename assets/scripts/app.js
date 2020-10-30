@@ -21,6 +21,10 @@ $(() => {
 
   //new game starts off hidden
   $('#new-game-button').hide()
+
+  //view games starts off hidden
+  $('#view-games-button').hide()
+
   
   // event listener for sign-in-form
   $('#sign-up-form').on('submit', events.onSignUp)
@@ -31,4 +35,6 @@ $(() => {
   //nevermind that for now
   // new game button
   $('#new-game-button').on('submit', events.onNewGame)
+  $('#view-games-button').on('submit', events.onViewGames)
+  // $('.square').on('click', events.onMakeChoice)
 })

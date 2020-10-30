@@ -16,6 +16,9 @@ const signInSuccess = function (response) {
     $('#sign-out-form').show()
     $('#change-password-form').show()
     $('#new-game-button').show()
+    $('#view-games-button').show()
+    $('#sign-up-form').hide()
+    $('#welcome').hide()
     store.user = response.user
 }
 
@@ -26,6 +29,12 @@ const signInFailure = function () {
 const signOutSuccess = function (response) {
     console.log('hello')
     $('#message').text('Sign out successful')
+    $('#sign-up-form').show()
+    $('#change-password-form').hide()
+    $('#new-game-button').hide()
+    $('.game-board').hide()
+    $('#view-games-button').hide()
+    $('#sign-out-form').hide()
     store.user = null
 }
 
@@ -76,6 +85,14 @@ const makeMoveFailure = function (response) {
     $('#message').text('Move Failed')
 }
 
+const viewGamesSuccess = function (response) {
+     
+    $('#message').text('You have played ' + response.games.length + ' games!')
+}
+
+const viewGamesFailure = function () {
+    console.log('something is not right')
+}
 
 
 module.exports = {
@@ -90,5 +107,7 @@ module.exports = {
     newGameSuccess,
     newGameFailure,
     makeMoveSuccess,
-    makeMoveFailure
+    makeMoveFailure,
+    viewGamesSuccess,
+    viewGamesFailure
 }

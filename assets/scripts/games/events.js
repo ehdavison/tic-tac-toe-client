@@ -51,6 +51,7 @@ const onNewGame = function (event) {
     api.newGame()
     .then(ui.newGameSuccess)
     .then(resetTurn)
+    .then($('.square').off('click', onMakeChoice))
     .then($('.square').one('click', onMakeChoice))
     .catch(ui.newGameFailure)
 }
@@ -60,20 +61,24 @@ let cells = ["", "", "", "", "", "", "", "", ""]
 let over = false
 let currentChoice = 'X'
 
+
+
 const onMakeChoice = function (event) {
     event.preventDefault()
     const box = $(event.target)
     //move data into store in order to determine if a game is over from anywhere
-    
     //the number of what box was clicked
     store.data.game.cell.index = box.data('cell-index')
+    
+    
     
     //the value of the players choice
     store.data.game.cell.value = currentChoice
     //The 'PATCH' AJAX request to update the cells array
-   if (store.data.game.over === true) {
+  if (store.data.game.over === true) {
        $('#message').text('Good Game!')
    } else {
+    console.log(box)
     box.text(currentChoice)
     api.makeMove(store.data)
     .then(ui.makeMoveSuccess)
@@ -82,9 +87,10 @@ const onMakeChoice = function (event) {
 
     //Determines if X or O should be played
     currentChoice = currentChoice === 'X'?'O':'X'
-    console.log(turn)
-   }
+    
+    }
 }
+
 
 //Checks if there is a win. If there is then change the game to over
 const winCondition = function () {
@@ -184,6 +190,13 @@ const determineTie = function () {
     }
 }
 
+const onViewGames = function (event) {
+    event.preventDefault()
+    api.viewGames()
+    .then(ui.viewGamesSuccess)
+    .catch(ui.viewGamesFailure)
+}
+
 module.exports = {
     onSignUp,
     onSignIn,
@@ -195,6 +208,6 @@ module.exports = {
     verticalWinner,
     diagonalWinner,
     winCondition,
-    resetTurn
-
+    resetTurn,
+    onViewGames
 }
