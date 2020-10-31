@@ -9,7 +9,6 @@
 const events = require('./games/events')
 
 $(() => {
-  console.log('DOM is loaded')
   //game-board starts off hidden
   $('.game-board').hide()
 
@@ -21,15 +20,18 @@ $(() => {
 
   //new game starts off hidden
   $('#new-game-button').hide()
+
+  //view games starts off hidden
+  $('#view-games-button').hide()
+
   
   // event listener for sign-in-form
   $('#sign-up-form').on('submit', events.onSignUp)
   $('#sign-in-form').on('submit', events.onSignIn)
   $('#sign-out-form').on('submit', events.onSignOut)
   $('#change-password-form').on('submit', events.onChangePassword)
-  // attach event handler to each square
-  //nevermind that for now
+
   // new game button
   $('#new-game-button').on('submit', events.onNewGame)
-  $('.square').on('click', events.onMakeChoice)
+  $('#view-games-button').on('submit', events.onViewGames)
 })

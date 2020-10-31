@@ -1,5 +1,14 @@
 @import '~bootstrap/scss/bootstrap';
 
+
+.header {
+    text-align: center;
+}
+
+#welcome {
+    text-align: center;
+}
+
 .game-board {
     display: grid;
     grid-template-rows: 200px 200px 200px;

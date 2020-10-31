@@ -12,8 +12,8 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Tic-Tac-Toe</h1>
-      <p>Sign up/Sign in to play!</p>
+      <h1 class="header">Tic-Tac-Toe</h1>
+      <p id="welcome">Sign up/Sign in to play!</p>
       <section>
         <form id="sign-up-form">
           <fieldset>
@@ -35,10 +35,10 @@
         <form id="sign-in-form">
           <fieldset>
             <legend>Sign In</legend>
-            <label for="sign-in-email">Email</label>
+            <label for="sign-in-email"></label>
             <input id="sign-in-email" type="email" name="credentials[email]" placeholder="Email">
             
-            <label for="sign-in-password">Password</label>
+            <label for="sign-in-password"></label>
             <input id="sign-in-password" type="password" name="credentials[password]" placeholder="Password">
             <input type="submit" value="Sign In!">
           </fieldset>
@@ -87,6 +87,16 @@
             <input type="submit" value="New Game">
             </fieldset> 
         </form>
+      </section>
+
+      <section>
+        <form id="view-games-button">
+          <fieldset>
+            <legend>View Total Games Played</legend>
+            <input type="submit" value="View Total Games">
+            </fieldset> 
+        </form>
+        <p id="total-games-message"></p>
       </section>
     </body>
 </html>
