@@ -19,8 +19,7 @@ const signInSuccess = function (response) {
     $('#change-password-form').show()
     $('#new-game-button').show()
     $('#view-games-button').show()
-    $('#sign-up-form').hide()
-    $('#sign-in-form').hide()
+    $('#sign-in-form')[0].reset()
     $('#welcome').hide()
     store.user = response.user
 }
@@ -39,6 +38,7 @@ const signOutSuccess = function (response) {
     $('#view-games-button').hide()
     $('#sign-out-form').hide()
     $('#sign-in-form').show()
+    $('#sign-in-form')[0].reset()
     store.user = null
 }
 
@@ -54,6 +54,7 @@ const changePasswordSuccess = function (response) {
 
 const changePasswordFailure = function () {
     $('#message').text('Password change failed, try again')
+    $('#change-password-form')[0].reset()
 }
 
 const newGameSuccess = function (response) {
