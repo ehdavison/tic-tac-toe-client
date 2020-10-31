@@ -5,10 +5,12 @@ const { winCondition } = require('./events')
 
 const signUpSuccess = function (response) {
     $('#message').text('Thank you for signing up! ' + response.user.email)
+    $('#sign-up-form')[0].reset()
     
 }
 const signUpFailure = function () {
-    $('#message').text('Sign up failed, please try again ' + response.user.email)
+    $('#message').text('Sign up failed, please try again')
+    $('#sign-up-form')[0].reset()
 }
 
 const signInSuccess = function (response) {
@@ -18,16 +20,17 @@ const signInSuccess = function (response) {
     $('#new-game-button').show()
     $('#view-games-button').show()
     $('#sign-up-form').hide()
+    $('#sign-in-form').hide()
     $('#welcome').hide()
     store.user = response.user
 }
 
-const signInFailure = function () {
-    $('#message').text('Sign in failed ' + response.user.email)
+const signInFailure = function (response) {
+    $('#message').text('Incorrect username or password')
+    $('#sign-in-form')[0].reset()
 }
 
 const signOutSuccess = function (response) {
-    console.log('hello')
     $('#message').text('Sign out successful')
     $('#sign-up-form').show()
     $('#change-password-form').hide()
@@ -35,15 +38,18 @@ const signOutSuccess = function (response) {
     $('.game-board').hide()
     $('#view-games-button').hide()
     $('#sign-out-form').hide()
+    $('#sign-in-form').show()
     store.user = null
 }
 
 const signOutFailure = function () {
-    $('#message').text('Sign out failed, please try again ' + response.user.email)
+    $('#message').text('Sign out failed, please try again ')
 }
 
 const changePasswordSuccess = function (response) {
     $('#message').text('Password change successful')
+    $('#change-password-form')[0].reset()
+    
 }
 
 const changePasswordFailure = function () {
@@ -56,7 +62,6 @@ const newGameSuccess = function (response) {
     store.game = response.game
     store.game.cells = ['', '', '',  '', '', '', '', '', '']
     store.data.game.over = false
-    console.log(store.data.game.over)
     $('.square').text('')
     
     
@@ -76,7 +81,7 @@ const makeMoveSuccess = function (response) {
             $(square[i]).text(cells[i])
         }
     }
-    console.log(cells)
+    $('#message').text('Nice Moves!')
     
     
 }
@@ -91,7 +96,7 @@ const viewGamesSuccess = function (response) {
 }
 
 const viewGamesFailure = function () {
-    console.log('something is not right')
+    $('#message').text('View Games Failed')
 }
 
 

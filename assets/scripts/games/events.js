@@ -14,8 +14,8 @@ const onSignUp = function (event) {
     const form = event.target
     const data = getFormFields(form)
     api.signUp(data)
-    .then(ui.signUpSuccess)
-    .catch(ui.signUpFailure)
+        .then(ui.signUpSuccess)
+        .catch(ui.signUpFailure)
 }
 
 const onSignIn = function (event) {
@@ -23,15 +23,15 @@ const onSignIn = function (event) {
     const form = event.target
     const data = getFormFields(form)
     api.signIn(data)
-    .then(ui.signInSuccess)
-    .catch(ui.signInFailure)
+        .then(ui.signInSuccess)
+        .catch(ui.signInFailure)
 }
 
 const onSignOut = function (event) {
     event.preventDefault()
     api.signOut()
-    .then(ui.signOutSuccess)
-    .catch(ui.signOutFailure)
+        .then(ui.signOutSuccess)
+        .catch(ui.signOutFailure)
 }
 
 const onChangePassword = function (event) {
@@ -78,7 +78,6 @@ const onMakeChoice = function (event) {
   if (store.data.game.over === true) {
        $('#message').text('Good Game!')
    } else {
-    console.log(box)
     box.text(currentChoice)
     api.makeMove(store.data)
     .then(ui.makeMoveSuccess)
@@ -100,18 +99,10 @@ const winCondition = function () {
     diagonalWinner()
 }
 
-// const victory = function () {
-//     if (playerOneVictory === true) {
-//         console.log('sweet lord jesus')
-//     }
-// }
-
 const horizontalWinner = () => {
     if (store.game.cells[0] === 'X' && store.game.cells[1] === 'X' && store.game.cells[2] === 'X') {
-        console.log('hello')
         $('#message').text('Top Row X Victory')
         store.data.game.over = true
-        console.log(store.data.game.over)
     } else if (store.game.cells[3] === 'X' && store.game.cells[4] === 'X' && store.game.cells[5] === 'X') {
         $('#message').text('Middle Row X Victory')
         store.data.game.over = true
@@ -178,8 +169,6 @@ const countTurn = function () {
     }
 }
 const resetTurn = function () {
-    
-    console.log('beans and pizza')
     return turn = 0
 }
 const determineTie = function () {
