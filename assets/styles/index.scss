@@ -9,6 +9,46 @@
     text-align: center;
 }
 
+.buttons {
+    color: white;
+    background-color: rgb(32, 134, 138);
+    border-radius: 14px;
+    border-color: black;
+    width: 20vh;
+    height: 5vh;
+    margin-top: 3vh;
+}
+
+.buttons:hover {
+    color: rgb(248, 239, 107);
+}
+
+.form {
+    border-radius: 7px;
+    border-color: rgb(3, 15, 15);
+    background-color: rgb(245, 245, 245);
+    height: 5vh;
+    width: 25vh;
+    text-align: center;
+}
+
+legend {
+    text-align: center;
+}
+
+// .form-container {
+//     display: flex;
+//     justify-content: center;
+// }
+
+.field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-color: solid black;
+    border-width: 7px;
+}
+
 .game-board {
     display: grid;
     grid-template-rows: 200px 200px 200px;
