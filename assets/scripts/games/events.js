@@ -186,6 +186,28 @@ const onViewGames = function (event) {
     .catch(ui.viewGamesFailure)
 }
 
+const onShowSignUp = event => {
+    event.preventDefault()
+    $('#sign-up-form').show()
+    $('#sign-in-form').hide()
+    $('#show-sign-in').show()
+    $('#show-sign-up').hide()
+}
+
+const onShowSignIn = event => {
+    event.preventDefault()
+    $('#sign-in-form').show()
+    $('#sign-up-form').hide()
+    $('#show-sign-up').show()
+    $('#show-sign-in').hide()
+}
+
+const onShowAccount = event => {
+    event.preventDefault()
+    $('#sign-out-form').toggle()
+    $('#change-password-form').toggle()
+}
+
 module.exports = {
     onSignUp,
     onSignIn,
@@ -198,5 +220,8 @@ module.exports = {
     diagonalWinner,
     winCondition,
     resetTurn,
-    onViewGames
+    onViewGames,
+    onShowSignUp,
+    onShowSignIn,
+    onShowAccount
 }
