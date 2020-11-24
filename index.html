@@ -17,40 +17,40 @@
   <h1 class="header">Tic-Tac-Toe</h1>
   <p id="welcome">Sign up/Sign in to play!</p>
   <section>
-    <form id="sign-up-form">
-      <fieldset>
+    <form class="form-container" id="sign-up-form">
+      <fieldset class="field">
         <legend>Sign up!</legend>
         <label for="sign-up-email">Email</label>
-        <input id="sign-up-email" type="text" name="credentials[email]" placeholder="Email">
+        <input class="form" id="sign-up-email" type="text" name="credentials[email]" placeholder="Email">
 
         <label for="sign-up-password">Password</label>
-        <input id="sign-up-password" type="password" name="credentials[password]" placeholder="Password">
+        <input class="form" id="sign-up-password" type="password" name="credentials[password]" placeholder="Password">
 
         <label for="sign-up-password_confirmation">Password Confirmation</label>
-        <input id="sign-up-password_confirmmation" type="password" name="credentials[password_confirmation]"
-          placeholder="Confirm Password">
+        <input class="form" id="sign-up-password_confirmmation" type="password"
+          name="credentials[password_confirmation]" placeholder="Confirm Password">
         <input class="buttons" type="submit" value="Sign up!">
       </fieldset>
     </form>
   </section>
 
   <section>
-    <form id="sign-in-form">
-      <fieldset>
+    <form class="form-container" id="sign-in-form">
+      <fieldset class="field">
         <legend>Sign In</legend>
         <label for="sign-in-email"></label>
-        <input id="sign-in-email" type="email" name="credentials[email]" placeholder="Email">
+        <input class="form" id="sign-in-email" type="email" name="credentials[email]" placeholder="Email">
 
         <label for="sign-in-password"></label>
-        <input id="sign-in-password" type="password" name="credentials[password]" placeholder="Password">
+        <input class="form" id="sign-in-password" type="password" name="credentials[password]" placeholder="Password">
         <input class="buttons" type="submit" value="Sign In!">
       </fieldset>
     </form>
   </section>
 
   <section>
-    <form id="sign-out-form">
-      <fieldset>
+    <form class="form-container" id="sign-out-form">
+      <fieldset class="field">
         <legend>Sign out!</legend>
         <input class="buttons" type="submit" value="Sign out!">
       </fieldset>
@@ -58,14 +58,14 @@
   </section>
 
   <section>
-    <form id="change-password-form">
-      <fieldset>
+    <form class="form-container" id="change-password-form">
+      <fieldset class="field">
         <legend>Change Password</legend>
         <label for="old-password">Old Password</label>
-        <input id="old-password" type="password" name="passwords[old]" placeholder="Old Password">
+        <input class="form" id="old-password" type="password" name="passwords[old]" placeholder="Old Password">
 
         <label for="new-password">New Password</label>
-        <input id="new-password" type="password" name="passwords[new]" placeholder="New Password">
+        <input class="form" id="new-password" type="password" name="passwords[new]" placeholder="New Password">
         <input class="buttons" type="submit" value="Change Password">
       </fieldset>
     </form>
@@ -84,8 +84,8 @@
   </main>
 
   <section>
-    <form id="new-game-button">
-      <fieldset>
+    <form class="form-container" id="new-game-button">
+      <fieldset class="field">
         <legend>New Game</legend>
         <input class="buttons" type="submit" value="New Game">
       </fieldset>
@@ -93,8 +93,8 @@
   </section>
 
   <section>
-    <form id="view-games-button">
-      <fieldset>
+    <form class="form-container" id="view-games-button">
+      <fieldset class="field">
         <legend>View Total Games Played</legend>
         <input class="buttons" type="submit" value="View Total Games">
       </fieldset>
