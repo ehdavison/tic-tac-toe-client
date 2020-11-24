@@ -17,6 +17,22 @@
   <h1 class="header">Tic-Tac-Toe</h1>
   <p id="welcome">Sign up/Sign in to play!</p>
   <section>
+    <form class="form-container" id="sign-in-form">
+      <fieldset class="field">
+        <legend>Sign In</legend>
+        <label for="sign-in-email"></label>
+        <input class="form" id="sign-in-email" type="email" name="credentials[email]" placeholder="Email">
+
+        <label for="sign-in-password"></label>
+        <input class="form" id="sign-in-password" type="password" name="credentials[password]" placeholder="Password">
+        <input class="buttons" type="submit" value="Sign In!">
+      </fieldset>
+    </form>
+  </section>
+
+
+
+  <section>
     <form class="form-container" id="sign-up-form">
       <fieldset class="field">
         <legend>Sign up!</legend>
@@ -34,19 +50,13 @@
     </form>
   </section>
 
-  <section>
-    <form class="form-container" id="sign-in-form">
-      <fieldset class="field">
-        <legend>Sign In</legend>
-        <label for="sign-in-email"></label>
-        <input class="form" id="sign-in-email" type="email" name="credentials[email]" placeholder="Email">
+  <form id="show-sign-in" class="show-button">
+    <input class="buttons" type="submit" value="Already have an account? Sign in!">
+  </form>
 
-        <label for="sign-in-password"></label>
-        <input class="form" id="sign-in-password" type="password" name="credentials[password]" placeholder="Password">
-        <input class="buttons" type="submit" value="Sign In!">
-      </fieldset>
-    </form>
-  </section>
+  <form id="show-sign-up" class="show-button">
+    <input class="buttons" type="submit" value="Need an account? Sign up!">
+  </form>
 
   <section>
     <form class="form-container" id="sign-out-form">

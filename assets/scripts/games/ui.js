@@ -6,6 +6,10 @@ const { winCondition } = require('./events')
 const signUpSuccess = function (response) {
     $('#message').text('Thank you for signing up! ' + response.user.email)
     $('#sign-up-form')[0].reset()
+    $('#sign-up-form').hide()
+    $('#sign-in-form').show()
+    $('#show-sign-in').hide()
+    $('#show-sign-up').show()
     
 }
 const signUpFailure = function () {
@@ -21,6 +25,10 @@ const signInSuccess = function (response) {
     $('#view-games-button').show()
     $('#sign-in-form')[0].reset()
     $('#welcome').hide()
+    //hide sign in/sign up
+    $('#sign-in-form').hide()
+    $('#sign-up-form').hide()
+    $('#show-sign-up').hide()
     store.user = response.user
 }
 
