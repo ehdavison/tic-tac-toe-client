@@ -19,8 +19,17 @@
 
 <body>
   <h1 class="header">Tic-Tac-Toe</h1>
-  <p id="message"></p>
   <p id="welcome">Sign up/Sign in to play!</p>
+
+  <section>
+    <form class="form-container" id="new-game-button">
+      <fieldset class="field">
+        <input class="buttons" type="submit" value="New Game">
+      </fieldset>
+    </form>
+  </section>
+
+  <p id="message"></p>
 
   <main class="game-board">
     <div class="square" id="zero" data-cell-index='0'></div>
@@ -99,15 +108,6 @@
         <label for="new-password">New Password</label>
         <input class="form" id="new-password" type="password" name="passwords[new]" placeholder="New Password">
         <input class="buttons" type="submit" value="Change Password">
-      </fieldset>
-    </form>
-  </section>
-
-  <section>
-    <form class="form-container" id="new-game-button">
-      <fieldset class="field">
-        <legend>New Game</legend>
-        <input class="buttons" type="submit" value="New Game">
       </fieldset>
     </form>
   </section>
