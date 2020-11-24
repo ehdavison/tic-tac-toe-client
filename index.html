@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Tic-Tac-Toe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+  </style>
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <h1 class="header">Tic-Tac-Toe</h1>
+  <p id="welcome">Sign up/Sign in to play!</p>
+
+  <section>
+    <form class="form-container" id="new-game-button">
+      <fieldset class="field">
+        <input class="buttons" type="submit" value="New Game">
+      </fieldset>
+    </form>
+  </section>
+
+  <p id="message"></p>
+
+  <main class="game-board">
+    <div class="square" id="zero" data-cell-index='0'></div>
+    <div class="square" id="one" data-cell-index='1'></div>
+    <div class="square" id="two" data-cell-index='2'></div>
+    <div class="square" id="three" data-cell-index='3'></div>
+    <div class="square" id="four" data-cell-index='4'></div>
+    <div class="square" id="five" data-cell-index='5'></div>
+    <div class="square" id="six" data-cell-index='6'></div>
+    <div class="square" id="seven" data-cell-index='7'></div>
+    <div class="square" id="eight" data-cell-index='8'></div>
+  </main>
+
+  <section>
+    <form class="form-container" id="sign-in-form">
+      <fieldset class="field">
+        <legend>Sign In</legend>
+        <label for="sign-in-email"></label>
+        <input class="form" id="sign-in-email" type="email" name="credentials[email]" placeholder="Email">
+
+        <label for="sign-in-password"></label>
+        <input class="form" id="sign-in-password" type="password" name="credentials[password]" placeholder="Password">
+        <input class="buttons" type="submit" value="Sign In!">
+      </fieldset>
+    </form>
+  </section>
+
+
+
+  <section>
+    <form class="form-container" id="sign-up-form">
+      <fieldset class="field">
+        <legend>Sign up!</legend>
+        <label for="sign-up-email">Email</label>
+        <input class="form" id="sign-up-email" type="text" name="credentials[email]" placeholder="Email">
+
+        <label for="sign-up-password">Password</label>
+        <input class="form" id="sign-up-password" type="password" name="credentials[password]" placeholder="Password">
+
+        <label for="sign-up-password_confirmation">Password Confirmation</label>
+        <input class="form" id="sign-up-password_confirmmation" type="password"
+          name="credentials[password_confirmation]" placeholder="Confirm Password">
+        <input class="buttons" type="submit" value="Sign up!">
+      </fieldset>
+    </form>
+  </section>
+
+  <form id="show-sign-in" class="show-button">
+    <input class="buttons" type="submit" value="Already have an account? Sign in!">
+  </form>
+
+  <form id="show-sign-up" class="show-button">
+    <input class="buttons" type="submit" value="Need an account? Sign up!">
+  </form>
+
+  <form id="show-account" class="show-button">
+    <input class="buttons" type="submit" value="Change Password/Log Out">
+  </form>
+
+  <section>
+    <form class="form-container" id="sign-out-form">
+      <fieldset class="field">
+        <legend>Sign out!</legend>
+        <input class="buttons" type="submit" value="Sign out!">
+      </fieldset>
+    </form>
+  </section>
+
+  <section>
+    <form class="form-container" id="change-password-form">
+      <fieldset class="field">
+        <legend>Change Password</legend>
+        <label for="old-password">Old Password</label>
+        <input class="form" id="old-password" type="password" name="passwords[old]" placeholder="Old Password">
+
+        <label for="new-password">New Password</label>
+        <input class="form" id="new-password" type="password" name="passwords[new]" placeholder="New Password">
+        <input class="buttons" type="submit" value="Change Password">
+      </fieldset>
+    </form>
+  </section>
+
+  <section>
+    <form class="form-container" id="view-games-button">
+      <fieldset class="field">
+        <legend>View Total Games Played</legend>
+        <h4 class="game-number-display"></h4>
+        <input class="buttons" type="submit" value="View Total Games">
+      </fieldset>
+    </form>
+    <p id="total-games-message"></p>
+  </section>
+</body>
+
+</html>
