@@ -19,8 +19,6 @@ const signUpFailure = function () {
 
 const signInSuccess = function (response) {
     $('#message').text('Thank you for signing in ' + response.user.email)
-    $('#sign-out-form').show()
-    $('#change-password-form').show()
     $('#new-game-button').show()
     $('#view-games-button').show()
     $('#sign-in-form')[0].reset()
@@ -29,6 +27,7 @@ const signInSuccess = function (response) {
     $('#sign-in-form').hide()
     $('#sign-up-form').hide()
     $('#show-sign-up').hide()
+    $('#show-account').show()
     store.user = response.user
 }
 
@@ -39,14 +38,17 @@ const signInFailure = function (response) {
 
 const signOutSuccess = function (response) {
     $('#message').text('Sign out successful')
-    $('#sign-up-form').show()
+    $('#sign-up-form').hide()
     $('#change-password-form').hide()
     $('#new-game-button').hide()
     $('.game-board').hide()
     $('#view-games-button').hide()
     $('#sign-out-form').hide()
-    $('#sign-in-form').show()
+    $('#sign-in-form').hide()
     $('#sign-in-form')[0].reset()
+    $('#show-sign-in').show()
+    $('#show-sign-up').show()
+    $('#show-account').hide()
     store.user = null
 }
 
@@ -101,7 +103,7 @@ const makeMoveFailure = function (response) {
 
 const viewGamesSuccess = function (response) {
      
-    $('#message').text('You have played ' + response.games.length + ' games!')
+    $('.game-number-display').text('You have played ' + response.games.length + ' games!')
 }
 
 const viewGamesFailure = function () {

@@ -43,4 +43,8 @@ $(() => {
   // show signup/signin
   $('#show-sign-up').on('submit', events.onShowSignUp)
   $('#show-sign-in').on('submit', events.onShowSignIn)
+
+  // on show account
+  $('#show-account').hide()
+  $('#show-account').on('submit', events.onShowAccount)
 })

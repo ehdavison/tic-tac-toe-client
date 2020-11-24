@@ -202,6 +202,12 @@ const onShowSignIn = event => {
     $('#show-sign-in').hide()
 }
 
+const onShowAccount = event => {
+    event.preventDefault()
+    $('#sign-out-form').toggle()
+    $('#change-password-form').toggle()
+}
+
 module.exports = {
     onSignUp,
     onSignIn,
@@ -216,5 +222,6 @@ module.exports = {
     resetTurn,
     onViewGames,
     onShowSignUp,
-    onShowSignIn
+    onShowSignIn,
+    onShowAccount
 }
